@@ -14,6 +14,12 @@ function App() {
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
 
+  // Define the tech list once to ensure consistency
+  const techList = [
+    'OPENAI', 'ZAPIER', 'GEMINI', 'AWS', 'PINECONE', 'PYTHON', 'REACT', 
+    'MAKE.COM', 'RETOOL', 'CLAUDE', 'GCP', 'AZURE', 'WORKATO', 'SHOPIFY', 'WIX'
+  ];
+
   const renderContent = () => {
     switch (currentView) {
       case 'process':
@@ -28,12 +34,13 @@ function App() {
             
             {/* Tech Marquee */}
             <div className="bg-cyan-950/20 border-y border-cyan-900/30 py-6 overflow-hidden whitespace-nowrap backdrop-blur-sm">
-               <div className="inline-block animate-[scroll_20s_linear_infinite]">
-                 {['OPENAI', 'ZAPIER', 'GEMINI', 'AWS', 'PINECONE', 'PYTHON', 'REACT', 'MAKE.COM', 'RETOOL'].map((tech, i) => (
+               <div className="inline-block animate-[scroll_40s_linear_infinite]">
+                 {/* Main List */}
+                 {techList.map((tech, i) => (
                    <span key={i} className="mx-8 font-mono text-cyan-500/40 font-bold tracking-widest hover:text-cyan-400 transition-colors cursor-default">{tech}</span>
                  ))}
                  {/* Duplicate for seamless loop */}
-                 {['OPENAI', 'ZAPIER', 'GEMINI', 'AWS', 'PINECONE', 'PYTHON', 'REACT', 'MAKE.COM', 'RETOOL'].map((tech, i) => (
+                 {techList.map((tech, i) => (
                    <span key={`dup-${i}`} className="mx-8 font-mono text-cyan-500/40 font-bold tracking-widest hover:text-cyan-400 transition-colors cursor-default">{tech}</span>
                  ))}
                </div>
