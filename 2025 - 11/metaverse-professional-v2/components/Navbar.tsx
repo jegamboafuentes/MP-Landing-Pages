@@ -10,7 +10,7 @@ interface NavbarProps {
   currentPage: 'home' | 'details';
 }
 
-type NavItem = 
+type NavItem =
   | { name: string; href: string; external: true }
   | { name: string; page: 'home' | 'details'; section?: string; external?: false };
 
@@ -41,17 +41,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0 cursor-pointer" onClick={() => handleNavClick('home')}>
             <div className="flex items-center gap-2 group">
-              <div className="w-8 h-8 border-2 border-red-500 flex items-center justify-center transform group-hover:rotate-45 transition-transform duration-500">
-                <div className="w-4 h-4 bg-cyan-400" />
+              <div className="w-10 h-10 relative transform group-hover:scale-110 transition-transform duration-500">
+                <img
+                  src="/assets/MPLOGOSVG.svg"
+                  alt="Metaverse Professional Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="font-['Orbitron'] font-bold text-lg md:text-xl tracking-wider text-white">
                 METAVERSE <span className="text-cyan-400">PROFESSIONAL</span>
@@ -64,32 +67,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
             <div className="ml-10 flex items-center space-x-6">
               {navItems.map((item) => (
                 item.external ? (
-                    <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative px-2 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white transition-colors group flex items-center gap-1"
-                    >
-                        {item.name}
-                        <ExternalLink size={12} className="opacity-50 group-hover:opacity-100" />
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
-                    </a>
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative px-2 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white transition-colors group flex items-center gap-1"
+                  >
+                    {item.name}
+                    <ExternalLink size={12} className="opacity-50 group-hover:opacity-100" />
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                  </a>
                 ) : (
-                    <button
-                        key={item.name}
-                        onClick={() => handleNavClick(item.page, item.section)}
-                        className={`relative px-2 py-2 rounded-md text-sm font-medium transition-colors group ${
-                            currentPage === item.page && !item.section ? 'text-white' : 'text-gray-300 hover:text-white'
-                        }`}
-                    >
-                        {item.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
-                    </button>
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.page, item.section)}
+                    className={`relative px-2 py-2 rounded-md text-sm font-medium transition-colors group ${currentPage === item.page && !item.section ? 'text-white' : 'text-gray-300 hover:text-white'
+                      }`}
+                  >
+                    {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+                  </button>
                 )
               ))}
-              
-              <button 
+
+              <button
                 onClick={toggleLanguage}
                 className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors px-2 font-mono text-sm"
               >
@@ -108,13 +110,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-4">
-             <button 
-                onClick={toggleLanguage}
-                className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors px-2 font-mono text-sm"
-              >
-                <Globe size={18} />
-                <span>{language === 'en' ? 'ES' : 'EN'}</span>
-              </button>
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 text-gray-300 hover:text-cyan-400 transition-colors px-2 font-mono text-sm"
+            >
+              <Globe size={18} />
+              <span>{language === 'en' ? 'ES' : 'EN'}</span>
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white p-2"
@@ -137,23 +139,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
                 item.external ? (
-                    <a
-                        key={item.name}
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 flex items-center gap-2"
-                    >
-                        {item.name} <ExternalLink size={14} />
-                    </a>
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 flex items-center gap-2"
+                  >
+                    {item.name} <ExternalLink size={14} />
+                  </a>
                 ) : (
-                    <button
-                        key={item.name}
-                        onClick={() => handleNavClick(item.page, item.section)}
-                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10"
-                    >
-                        {item.name}
-                    </button>
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavClick(item.page, item.section)}
+                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10"
+                  >
+                    {item.name}
+                  </button>
                 )
               ))}
               <button

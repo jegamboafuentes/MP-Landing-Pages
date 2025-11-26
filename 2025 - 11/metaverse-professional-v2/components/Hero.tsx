@@ -20,47 +20,52 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onNavigate }) => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-fuchsia-500/10 rounded-full blur-[80px]" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        
+
         {/* Animated HUD / Logo Area */}
         <div className="relative w-64 h-64 mb-12">
           {/* Orbiting Rings */}
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0 rounded-full border border-cyan-500/30 border-dashed"
           />
-          <motion.div 
+          <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
             className="absolute inset-4 rounded-full border border-fuchsia-500/30 border-dotted"
           />
-          
+
           {/* Floating Icons on Orbit */}
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0"
           >
-             <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black p-1 rounded-full border border-cyan-500/50">
-               <Cpu size={20} className="text-cyan-400" />
-             </div>
-             <div className="absolute top-1/2 -right-4 -translate-y-1/2 bg-black p-1 rounded-full border border-fuchsia-500/50">
-               <Cloud size={20} className="text-fuchsia-400" />
-             </div>
-             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black p-1 rounded-full border border-cyan-500/50">
-               <Database size={20} className="text-cyan-400" />
-             </div>
-             <div className="absolute top-1/2 -left-4 -translate-y-1/2 bg-black p-1 rounded-full border border-fuchsia-500/50">
-               <Zap size={20} className="text-fuchsia-400" />
-             </div>
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-black p-1 rounded-full border border-cyan-500/50">
+              <Cpu size={20} className="text-cyan-400" />
+            </div>
+            <div className="absolute top-1/2 -right-4 -translate-y-1/2 bg-black p-1 rounded-full border border-fuchsia-500/50">
+              <Cloud size={20} className="text-fuchsia-400" />
+            </div>
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-black p-1 rounded-full border border-cyan-500/50">
+              <Database size={20} className="text-cyan-400" />
+            </div>
+            <div className="absolute top-1/2 -left-4 -translate-y-1/2 bg-black p-1 rounded-full border border-fuchsia-500/50">
+              <Zap size={20} className="text-fuchsia-400" />
+            </div>
           </motion.div>
 
           {/* Central Logo */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 bg-black border-2 border-red-500 flex items-center justify-center relative shadow-[0_0_30px_rgba(239,68,68,0.4)]">
-               <div className="w-16 h-16 bg-cyan-400/90 shadow-[0_0_20px_rgba(6,182,212,0.6)] animate-pulse" />
-               <div className="absolute top-0 right-0 w-2 h-2 bg-white" />
-               <div className="absolute bottom-0 left-0 w-2 h-2 bg-white" />
+            <div className="w-40 h-40 flex items-center justify-center relative">
+              {/* Glowing effect behind the logo */}
+              <div className="absolute inset-0 bg-cyan-500/20 blur-2xl rounded-full animate-pulse" />
+
+              <img
+                src="/assets/LOGO_V2.png"
+                alt="Central Logo"
+                className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]"
+              />
             </div>
           </div>
         </div>
@@ -77,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onNavigate }) => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
             {t.hero.title}
           </h1>
-          
+
           <h2 className="text-2xl md:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-400 mb-6 tracking-wide font-['Orbitron']">
             {t.hero.slogan}
           </h2>
@@ -95,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenContact, onNavigate }) => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
+            <button
               onClick={onOpenContact}
               className="group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-fuchsia-600 rounded-lg font-bold text-lg tracking-wide hover:scale-105 transition-transform duration-200 overflow-hidden cursor-pointer"
             >
