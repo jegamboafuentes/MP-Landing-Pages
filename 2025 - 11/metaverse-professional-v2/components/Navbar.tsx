@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -41,8 +40,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
-        }`}
+      className={`fixed w-full z-50 top-0 start-0 transition-all duration-300 ${
+        scrolled || isOpen ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -82,8 +82,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.page, item.section)}
-                    className={`relative px-2 py-2 rounded-md text-sm font-medium transition-colors group ${currentPage === item.page && !item.section ? 'text-white' : 'text-gray-300 hover:text-white'
-                      }`}
+                    className={`relative px-2 py-2 rounded-md text-sm font-medium transition-colors group ${
+                      currentPage === item.page && !item.section ? 'text-white' : 'text-gray-300 hover:text-white'
+                    }`}
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
@@ -119,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white p-2"
+              className="text-gray-300 hover:text-white p-2 relative z-50"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -127,16 +128,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Height Fix */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-black/95 backdrop-blur-lg border-b border-white/10"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-black border-b border-white/10 fixed top-20 left-0 w-full z-40 h-[calc(100vh-5rem)] overflow-y-auto"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <div className="px-4 pt-2 pb-20 space-y-2">
               {navItems.map((item) => (
                 item.external ? (
                   <a
@@ -144,29 +146,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 flex items-center gap-2"
+                    className="block w-full text-left px-3 py-4 rounded-md text-lg font-medium text-gray-300 hover:text-white hover:bg-white/10 flex items-center gap-2 border-b border-white/5"
                   >
-                    {item.name} <ExternalLink size={14} />
+                    {item.name} <ExternalLink size={16} />
                   </a>
                 ) : (
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.page, item.section)}
-                    className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-white/10"
+                    className="block w-full text-left px-3 py-4 rounded-md text-lg font-medium text-gray-300 hover:text-white hover:bg-white/10 border-b border-white/5"
                   >
                     {item.name}
                   </button>
                 )
               ))}
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  onOpenContact();
-                }}
-                className="block w-full text-center mt-4 bg-gradient-to-r from-cyan-600 to-fuchsia-600 text-white px-5 py-3 rounded font-bold"
-              >
-                {t.nav.requestAudit}
-              </button>
+              <div className="pt-8 px-3">
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    onOpenContact();
+                  }}
+                  className="block w-full text-center bg-gradient-to-r from-cyan-600 to-fuchsia-600 text-white px-5 py-4 rounded-lg font-bold shadow-lg text-lg"
+                >
+                  {t.nav.requestAudit}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
