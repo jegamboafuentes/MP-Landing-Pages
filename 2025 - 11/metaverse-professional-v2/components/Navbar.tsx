@@ -57,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
                 />
               </div>
               <span className="font-['Orbitron'] font-bold text-lg md:text-xl tracking-wider text-white">
-                METAVERSE <span className="text-cyan-400">PROFESSIONAL</span>
+                METAVERSE <span className="text-cyan-400"><br></br>PROFESSIONAL</span>
               </span>
             </div>
           </div>
