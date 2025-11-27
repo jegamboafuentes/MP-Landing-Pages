@@ -152,7 +152,7 @@ export const translations = {
       slogan: 'Sistemas más inteligentes. Crecimiento más rápido.',
       description: 'Ayudamos a pequeñas y medianas empresas a dejar atrás las hojas de cálculo y el trabajo manual para adoptar',
       descriptionHighlight: 'sistemas inteligentes y escalables',
-      tags: ['Copilotos IA', 'Flujos Automatizados', 'Tuberías de Datos', 'Arquitectura Cloud'],
+      tags: ['Copilotos IA', 'Flujos Automatizados', 'Pipelines de Datos', 'Arquitectura Cloud'],
       ctaPrimary: 'Solicitar Auditoría Gratuita',
       ctaSecondary: 'Ver Nuestro Proceso',
     },
