@@ -4,8 +4,19 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# NOTE: For this method, ensure your .env file is present or keys are hardcoded
-# to simplify the UI deployment process.
+
+# 1. Declare the arguments (received from Cloud Build)
+ARG VITE_EMAILJS_SERVICE_ID
+ARG VITE_EMAILJS_PUBLIC_KEY
+ARG VITE_EMAILJS_TEMPLATE_ADMIN
+ARG VITE_EMAILJS_TEMPLATE_CUSTOMER
+
+# 2. Set them as environment variables so Vite can see them
+ENV VITE_EMAILJS_SERVICE_ID=$VITE_EMAILJS_SERVICE_ID
+ENV VITE_EMAILJS_PUBLIC_KEY=$VITE_EMAILJS_PUBLIC_KEY
+ENV VITE_EMAILJS_TEMPLATE_ADMIN=$VITE_EMAILJS_TEMPLATE_ADMIN
+ENV VITE_EMAILJS_TEMPLATE_CUSTOMER=$VITE_EMAILJS_TEMPLATE_CUSTOMER
+
 RUN npm run build
 
 # Serve Stage
