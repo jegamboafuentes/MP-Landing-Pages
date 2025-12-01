@@ -63,7 +63,7 @@ export const translations = {
             { name: 'Elias Ordaz', role: 'Backend & Frontend Architect', bio: 'Builds robust APIs and beautiful interfaces that make complex systems feel simple.' },
             { name: 'Norberto Camacho', role: 'Backend & DevOps Architect', bio: 'Focuses on reliability, CI/CD, and infrastructure-as-code so your automations never sleep.' },
             { name: 'Javier Lugo', role: 'Backend & Databases Architect', bio: 'Designs high-performance database schemas and queries that power your analytics and AI.' },
-            { name: 'Jonathan Ambrose', role: 'Business Advisor & Strategy Lead', bio: 'Founder of John Ambrose Advice LLC. Guides strategic growth and business alignment.' },
+            { name: 'Jonathan Ambrose', role: 'Business Advisor & Strategy Lead', bio: 'Guides strategic growth and business alignment.' },
         ]
     },
     socials: {
@@ -197,7 +197,7 @@ export const translations = {
             { name: 'Elias Ordaz', role: 'Arquitecto Backend y Frontend', bio: 'Construye APIs robustas e interfaces hermosas que hacen que los sistemas complejos parezcan simples.' },
             { name: 'Norberto Camacho', role: 'Arquitecto Backend y DevOps', bio: 'Se enfoca en la confiabilidad, CI/CD e infraestructura como código para que sus automatizaciones nunca duerman.' },
             { name: 'Javier Lugo', role: 'Arquitecto Backend y Bases de Datos', bio: 'Diseña esquemas de bases de datos de alto rendimiento y consultas que impulsan su análisis e IA.' },
-            { name: 'Jonathan Ambrose', role: 'Asesor Comercial y Estrategia', bio: 'Fundador de John Ambrose Advice LLC. Guía el crecimiento estratégico y la alineación comercial.' },
+            { name: 'Jonathan Ambrose', role: 'Asesor Comercial y Estrategia', bio: 'Guía el crecimiento estratégico y la alineación comercial.' },
         ]
     },
     socials: {
