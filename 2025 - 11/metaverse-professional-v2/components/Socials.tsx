@@ -1,19 +1,19 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Youtube, MessageSquare, Twitter, Instagram, Gem, Box } from 'lucide-react';
+import { Youtube, MessageSquare, Twitter, Instagram, Box } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export const Socials: React.FC = () => {
   const { t } = useLanguage();
 
   const socialConfig = [
-    { name: 'YouTube', icon: Youtube, color: 'hover:text-red-500' },
-    { name: 'Discord', icon: MessageSquare, color: 'hover:text-indigo-400' },
-    { name: 'Twitter', icon: Twitter, color: 'hover:text-blue-400' },
-    { name: 'Instagram', icon: Instagram, color: 'hover:text-pink-500' },
-    { name: 'OpenSea', icon: Box, color: 'hover:text-cyan-400' },
-    { name: 'Rarible', icon: Gem, color: 'hover:text-yellow-400' },
+    { name: 'YouTube', icon: Youtube, color: 'hover:text-red-500', url: 'https://www.youtube.com/@metaverseprofessional' },
+    { name: 'Discord', icon: MessageSquare, color: 'hover:text-indigo-400', url: 'https://discord.gg/NMtugr9H' },
+    { name: 'X', icon: Twitter, color: 'hover:text-blue-400', url: 'https://x.com/metaverse_prof' },
+    { name: 'Instagram', icon: Instagram, color: 'hover:text-pink-500', url: 'https://www.instagram.com/metaverse_professional?igsh=MWpvMWwyc2k3MGloNw==' },
+    { name: 'OpenSea', icon: Box, color: 'hover:text-cyan-400', url: 'https://opensea.io/0xc71f8b898bd970ef43f4d6384c0f13f4313e5c84' },
+    { name: 'OpenSea 2', icon: Box, color: 'hover:text-cyan-400', url: 'https://opensea.io/0x3d21d2e046fef68fd27fe6c291fa007e79b718fe' },
   ];
 
   return (
@@ -26,7 +26,9 @@ export const Socials: React.FC = () => {
           {socialConfig.map((social, i) => (
             <motion.a
               key={i}
-              href="#"
+              href={social.url}
+              target="_blank"
+              rel="noreferrer"
               whileHover={{ y: -5, scale: 1.1 }}
               className={`flex flex-col items-center gap-3 group`}
             >
