@@ -1,6 +1,10 @@
 steps:
   # Build the container image
   - name: 'gcr.io/cloud-builders/docker'
+    # ---------------------------------------------------------
+    # CRITICAL FIX: Tell Cloud Build to work inside your folder
+    # ---------------------------------------------------------
+    dir: '2025 - 11/metaverse-professional-v2'
     args:
       - 'build'
       - '-t'
@@ -25,15 +29,14 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'metaverse-professional-v2'
+      - 'mp-landing-v2' # Make sure this matches your Cloud Run service name
       - '--image'
       - 'gcr.io/$PROJECT_ID/metaverse-professional:$COMMIT_SHA'
       - '--region'
-      - 'us-central1'
+      - 'us-central1' # Change this if your region is different (e.g. us-east1)
 
 images:
   - 'gcr.io/$PROJECT_ID/metaverse-professional:$COMMIT_SHA'
 
-# ADD THIS SECTION TO FIX THE BUILD ERROR
 options:
   logging: CLOUD_LOGGING_ONLY
