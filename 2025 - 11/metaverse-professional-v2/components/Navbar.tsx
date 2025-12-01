@@ -5,8 +5,8 @@ import { useLanguage } from './LanguageContext';
 
 interface NavbarProps {
   onOpenContact: () => void;
-  onNavigate: (page: 'home' | 'details', sectionId?: string) => void;
-  currentPage: 'home' | 'details';
+  onNavigate: (page: 'home' | 'details' | 'softwareSolutions' | 'softwareSolutionsEs' | 'privacy' | 'terms', sectionId?: string) => void;
+  currentPage: 'home' | 'details' | 'softwareSolutions' | 'softwareSolutionsEs' | 'privacy' | 'terms';
 }
 
 type NavItem =

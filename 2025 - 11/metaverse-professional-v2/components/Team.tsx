@@ -22,7 +22,7 @@ const memberConfig = [
     // Norberto Camacho (Index 2)
     image: '/assets/norbertMP.jpeg',
     linkedin: 'https://www.linkedin.com/in/norberto-c-a5aa8367',
-    github: 'https://github.com/', // Mock GitHub
+    github: 'https://github.com/norbertcam', // Mock GitHub
     showGithub: true
   },
   {
