@@ -34,7 +34,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigate, curre
     { name: t.nav.process, page: 'details', section: 'process' },
     { name: t.nav.technologies, page: 'details', section: 'technologies' },
     { name: t.nav.team, page: 'details', section: 'team' },
-    { name: t.nav.retailed, href: 'https://retailed.io', external: true },
     { name: t.nav.findUs, page: 'details', section: 'find-us' },
   ];
 
