@@ -8,6 +8,16 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1jGKN2cAmXX_1Y7HJSFReIM4-OlnD429y
 
+## Branding
+
+- Primary logo: `public/assets/MPLOGOSVG.svg`
+- Team photos: `public/assets/` (e.g., `jegf_mp.jpeg` for Enrique Gamboa, `eliasMP.jpeg` for Elías Ordaz)
+
+## Landing pages
+
+- English: `/pages/software-solutions` — automation/AI/custom software overview with Enrique Gamboa profile and request-info CTA.
+- Spanish: `/pages/soluciones-de-software-innovadoras-para-un-mundo-web-3-0` — same layout in Spanish featuring Elías Ordaz and the request-info CTA.
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
